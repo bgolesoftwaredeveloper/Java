@@ -138,8 +138,9 @@ public class Dijkstra {
         /**
          * Computes the shortest distances from the given start node to all other nodes
          * using Dijkstra's algorithm.
-         * @param start
-         * @return
+         *
+         * @param start The index of the starting node
+         * @return An array of shortest distances from start to each node
          */
         public int[] dijkstra(int start) {
             if (start < 0 || start >= _vertices) {

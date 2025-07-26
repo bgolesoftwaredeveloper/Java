@@ -63,6 +63,16 @@ public class DBSCAN {
     }
 
     /**
+     * Determines if a given point is a core point based on the minimum points threshold.
+     *
+     * @param point The point to check.
+     * @return true if the point is a core point; false otherwise.
+     */
+    private boolean isCorePoint(Point point) {
+        return regionQuery(point).size() >= _minimumPoints;
+    }
+
+    /**
      * Expands a cluster by recursively visiting and assigning the same cluster ID
      * to all density-reachable points from the given seed point.
      *
@@ -149,7 +159,7 @@ public class DBSCAN {
 
             neighbors = regionQuery(point);
 
-            if (neighbors.size() < _minimumPoints) {
+            if (!isCorePoint(point)) {
                 point.setClusterId(NOISE);
                 point.setVisited(true);
             } else {
