@@ -29,8 +29,8 @@ public class Main {
         // Convert raw data into Point objects.
         List<Point> points = new ArrayList<>();
 
-        for (int i = 0; i < data.length; i++) {
-            points.add(new Point(data[i], i));
+        for (int index = 0; index < data.length; index++) {
+            points.add(new Point(data[index], index));
         }
 
         // Initialize and run the OPTICS algorithm.
