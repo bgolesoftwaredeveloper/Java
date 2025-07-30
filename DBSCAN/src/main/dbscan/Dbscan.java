@@ -1,5 +1,5 @@
 /**
- * @file DBSCAN.java
+ * @file Dbscan.java
  * @author Braiden Gole
  * @version 1.0
  * @date 2025-06-10
@@ -32,6 +32,8 @@
  * - `getClusterId()`, `setClusterId(int)`
  * - `Distance(Point)` - for computing Euclidean distance
  */
+package dbscan;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -41,7 +43,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class DBSCAN {
+public class Dbscan {
     public final static int NOISE = -1;
     public final static int UNCLASSIFIED = -2;
 
@@ -56,7 +58,7 @@ public class DBSCAN {
      * @param epsilon
      * @param minimumPoints
      */
-    public DBSCAN(List<Point> points, double epsilon, int minimumPoints) {
+    public Dbscan(List<Point> points, double epsilon, int minimumPoints) {
         this._points = points;
         this._epsilon = epsilon;
         this._minimumPoints = minimumPoints;

@@ -19,6 +19,8 @@
  * - A method to compute Euclidean distance to another point.
  * - A formatted string representation for easy printing in clustering output.
  */
+package dbscan;
+
 import java.util.Objects;
 
 public class Point {
@@ -89,7 +91,7 @@ public class Point {
         this._visited = false;
 
         // Give an unclassified ID.
-        this._clusterId = DBSCAN.UNCLASSIFIED;
+        this._clusterId = Dbscan.UNCLASSIFIED;
     }
 
     /**

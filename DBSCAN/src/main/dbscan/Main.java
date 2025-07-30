@@ -25,9 +25,11 @@
  * that belong to each cluster.
  *
  * ### Dependencies:
- * - DBSCAN.java: Contains the clustering logic.
+ * - Dbscan.java: Contains the clustering logic.
  * - Point.java: Defines the structure and behavior of individual data points.
  */
+package dbscan;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,7 +52,7 @@ public class Main {
         int minimumPoints = 3;
 
         // Initialize DBSCAN.
-        DBSCAN dbscan = new DBSCAN(points, epsilon, minimumPoints);
+        Dbscan dbscan = new Dbscan(points, epsilon, minimumPoints);
 
         // Execute...
         dbscan.cluster();
