@@ -23,6 +23,8 @@
  * - Does not handle negative weights (Dijkstra's algorithm is not suitable for them)
  * - Does not reconstruct the actual shortest path (only distances are returned)
  */
+package dijkstra;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;

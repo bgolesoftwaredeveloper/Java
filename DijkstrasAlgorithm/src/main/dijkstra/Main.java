@@ -18,6 +18,7 @@
  * - Run this program to verify that the Dijkstra algorithm works as expected.
  * - Modify the graph or starting node to test different scenarios.
  */
+package dijkstra;
 
 public class Main {
     public static void main(String[] args) {
