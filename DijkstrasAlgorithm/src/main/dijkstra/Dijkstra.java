@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
-import java.util.Collections;
 
 /**
  * Main class that includes Edge and graph definitions.
