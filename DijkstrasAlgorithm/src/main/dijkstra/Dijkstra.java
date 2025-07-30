@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
-import java.util.Comparator;
 import java.util.Collections;
 
 /**
@@ -69,6 +68,63 @@ public class Dijkstra {
          */
         public int getWeight() {
             return _weight;
+        }
+    }
+
+    /**
+     * @brief Represents a node and its current known distance from the source.
+     *
+     * This helper class is used in the priority queue during the execution of Dijkstra's algorithm.
+     * Each instance stores a graph node index and its associated distance from the starting node.
+     * The class implements the Comparable interface to enable ordering based on distance,
+     * allowing efficient extraction of the next closest node using a min-heap (priority queue).
+     *
+     * This class is internal to the Dijkstra implementation and not intended for external use.
+     */
+    private static class NodeDistance implements Comparable<NodeDistance> {
+        private int _node;
+        private int _distance;
+
+        /**
+         * Constructs a NodeDistance object with a given node index and distance.
+         *
+         * @param node     The index of the graph node
+         * @param distance The current shortest known distance to this node
+         */
+        public NodeDistance(int node, int distance) {
+            this._node = node;
+            this._distance = distance;
+        }
+
+        /**
+         * Returns the graph node index represented by this object.
+         *
+         * @return The node index
+         */
+        public int getNode() {
+            return _node;
+        }
+
+        /**
+         * Returns the shortest known distance to the node.
+         *
+         * @return The distance value
+         */
+        public int getDistance() {
+            return _distance;
+        }
+
+        /**
+         * Compares this NodeDistance object to another based on distance.
+         * Enables priority queue sorting in ascending order of distance.
+         *
+         * @param other The other NodeDistance object to compare to
+         * @return A negative integer, zero, or a positive integer as this distance
+         *         is less than, equal to, or greater than the other's distance
+         */
+        @Override
+        public int compareTo(NodeDistance other) {
+            return Integer.compare(this._distance, other._distance);
         }
     }
 
@@ -141,27 +197,16 @@ public class Dijkstra {
             distance[start] = 0;
 
             // Priority queue to select the next node with the smallest distance.
-            PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(number -> number[0]));
+            PriorityQueue<NodeDistance> priorityQueue = new PriorityQueue<>();
 
             // Add the start node to the queue with a distance of 0.
-            priorityQueue.offer(new int[]{0, start});
-
-            // Declare loop variables with default values.
-            int[] current = new int[]{-1, -1};
-            int currentDistance = 0;
-            int currentNode = 0;
-            int neighbor = 0;
-            int weight = 0;
-            int newDistance = 0;
-
-            List<Edge> neighbors = Collections.emptyList();
-            Edge edge = new Edge(-1, 0);
+            priorityQueue.offer(new NodeDistance(start, 0));
 
             // Main loop: visit nodes in order of shortest known distance.
             while (!priorityQueue.isEmpty()) {
-                current = priorityQueue.poll();
-                currentDistance = current[0];
-                currentNode = current[1];
+                NodeDistance current = priorityQueue.poll();
+                int currentDistance = current.getDistance();
+                int currentNode = current.getNode();
 
                 // Skip if we have already found a shorter path.
                 if (currentDistance > distance[currentNode]) {
@@ -169,18 +214,17 @@ public class Dijkstra {
                 }
 
                 // Explore each neighbor of the current node.
-                neighbors = _adjacentList.get(currentNode);
+                List<Edge> neighbors = _adjacentList.get(currentNode);
 
                 for (Edge value : neighbors) {
-                    edge = value;
-                    neighbor = edge.getTo();
-                    weight = edge.getWeight();
-                    newDistance = currentDistance + weight;
+                    int neighbor = value.getTo();
+                    int weight = value.getWeight();
+                    int newDistance = currentDistance + weight;
 
                     // Update the distance if a shorter path is found.
                     if (newDistance < distance[neighbor]) {
                         distance[neighbor] = newDistance;
-                        priorityQueue.offer(new int[]{newDistance, neighbor});
+                        priorityQueue.offer(new NodeDistance(neighbor, newDistance));
                     }
                 }
             }
