@@ -101,22 +101,6 @@ public class Dijkstra {
         }
 
         /**
-         * Returns the number of vertices in the graph.
-         * @return
-         */
-        public int getVertices() {
-            return _vertices;
-        }
-
-        /**
-         * Returns the adjacency list of the graph.
-         * @return
-         */
-        public List<List<Edge>> getAdjacentList() {
-            return _adjacentList;
-        }
-
-        /**
          * Adds a directed edge from one vertex to another with a specified weight.
          * @param from
          * @param to
