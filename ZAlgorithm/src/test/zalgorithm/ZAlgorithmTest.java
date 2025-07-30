@@ -14,6 +14,8 @@
  * - JUnit 5 (Ensure the JUnit 5 library is included in your build configuration)
  * - ZAlgorithm.java (class under test)
  */
+package zalgorithm;
+
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;

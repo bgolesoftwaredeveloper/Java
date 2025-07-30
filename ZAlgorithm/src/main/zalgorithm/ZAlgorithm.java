@@ -22,6 +22,8 @@
  * - The special separator character '$' must not appear in the input pattern or text
  * - Only exact matches are reported; no support for wildcards or approximate matches
  */
+package zalgorithm;
+
 import java.util.ArrayList;
 import java.util.List;
 

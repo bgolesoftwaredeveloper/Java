@@ -24,6 +24,8 @@
  * Usage:
  * Compile and run the program to view the positions of pattern matches.
  */
+package zalgorithm;
+
 import java.util.List;
 
 public class Main {
