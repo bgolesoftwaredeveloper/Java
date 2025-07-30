@@ -11,6 +11,8 @@
  *                      The class provides utility methods for computing Euclidean distance and
  *                      accessors/mutators for internal state.
  */
+package optics;
+
 public class Point {
     private double[] _coordinates;
     private int _index;

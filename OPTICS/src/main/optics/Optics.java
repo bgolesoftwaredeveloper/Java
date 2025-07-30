@@ -16,6 +16,8 @@
  *                      This implementation does not explicitly extract clusters but returns an ordered list of
  *                      points with computed reachability distances.
  */
+package optics;
+
 import java.util.*;
 
 public class Optics {

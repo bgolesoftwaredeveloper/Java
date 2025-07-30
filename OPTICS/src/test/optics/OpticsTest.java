@@ -7,6 +7,8 @@
  *                      The tests cover basic clustering behavior, reachability calculations, and edge cases
  *                      such as single-point input and disconnected clusters.
  */
+package optics;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.ArrayList;
@@ -110,7 +112,7 @@ public class OpticsTest {
 
         // Assert.
         assertEquals(1, ordered.size(), "Only one point should be returned.");
-        assertTrue(Double.isInfinite(ordered.get(0).getReachability()),
+        assertTrue(Double.isInfinite(ordered.getFirst().getReachability()),
             "Single point must have infinite reachability.");
     }
 

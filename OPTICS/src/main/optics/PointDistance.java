@@ -9,6 +9,8 @@
  *
  *                      Equality and hashing are based solely on the Point object to ensure correct behavior in collections.
  */
+package optics;
+
 public class PointDistance {
     private Point _point;
     private double _distance;

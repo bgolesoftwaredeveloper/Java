@@ -9,6 +9,8 @@
  *
  *                      Modify this class to load real datasets or perform clustering on different inputs.
  */
+package optics;
+
 import java.util.ArrayList;
 import java.util.List;
 
